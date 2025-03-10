@@ -1,0 +1,6 @@
+@dorduncu_hafta_odevi_HostAddress = http://localhost:5028
+
+GET {{dorduncu_hafta_odevi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
