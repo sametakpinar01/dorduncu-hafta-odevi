@@ -1,16 +1,40 @@
+using dorduncu_hafta_odevi.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllers();
-builder.Services.AddSwaggerGen(); // Swagger’ý etkinleþtirir
+
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Title = "dorduncu-hafta-odevi",
+        Version = "v1"
+    });
+    // Metotlara gÃ¶re sÄ±ralama
+    options.OrderActionsBy(apiDesc =>
+    {
+        var method = apiDesc.HttpMethod?.ToLowerInvariant();
+
+        return method switch
+        {
+            "post" => "1",   // Create
+            "get" => "2",    // Read
+            "put" => "3",    // Update
+            "delete" => "4", // Delete
+            _ => "99"
+        };
+    });
+});
+
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger(); // Swagger middleware
-    app.UseSwaggerUI(); // Swagger UI middleware
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();

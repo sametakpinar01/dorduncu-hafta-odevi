@@ -1,2 +1,2 @@
 # dorduncu-hafta-odevi
- Siliconmade uzmanlık eğitimi için geliştirmiş olduğum dördüncü projedir.
+Siliconmade uzmanlık eğitimi için geliştirmiş olduğum dördüncü projedir. Bu proje kapsamında bir ASP.NET Core Web API uygulaması geliştirdim. C-R-U-D işlemlerini basitçe deneyimlemiş oldum.

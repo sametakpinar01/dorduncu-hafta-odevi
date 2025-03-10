@@ -20,7 +20,7 @@ namespace dorduncu_hafta_odevi.Controllers
         [HttpGet]
         public IActionResult GetProducts()
         {
-            return Ok(_products); // Ürün listesini JSON formatında döner
+            return Ok(_products); // Ürün listesini JSON formatında döndürmek için 200 OK döner
         }
 
         // GET: api/product/{id} (Belirli bir ürünü getir)
@@ -42,7 +42,7 @@ namespace dorduncu_hafta_odevi.Controllers
             // Yeni bir ID oluştur (mevcut en büyük ID'ye 1 ekle)
             product.Id = _products.Any() ? _products.Max(p => p.Id) + 1 : 1;
             _products.Add(product); // Ürünü listeye ekle
-            return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product); // 201 Created döner
+            return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product); // 201 Oluşturuldu döner
         }
 
         // PUT: api/product/{id} (Ürünü güncelle)
